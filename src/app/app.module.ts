@@ -1,6 +1,8 @@
+import { HomePageModule } from './../pages/home/home.module';
+import { LoginPageModule } from './../pages/login/login.module';
 import { AsakimHttpInterceptor } from './../@core/services/asakim-http-interceptor.service';
 import { ListPageModule } from './../pages/list/list.module';
-import { HomePageModule } from './../pages/home/home.module';
+import { MainPageModule } from './../pages/main/main.module';
 import { AsakimCoreModule } from './../@core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -13,8 +15,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const ASAKIM_PAGES = [
+  MainPageModule,
   HomePageModule,
-  ListPageModule
+  ListPageModule,
+  LoginPageModule
 ];
 
 @NgModule({

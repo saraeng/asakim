@@ -1,18 +1,36 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
+
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title>שולחן עבודה</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-grid>
+    <ion-row *ngFor="let row of rows">
+      <ion-col *ngFor="let page of row">
+        <div class="btn-image" tappable (click)="openPage(page.page)">
+          <img src="../../assets/imgs/{{page.icon}}">
+          <p>{{page.title}}</p>
+        </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

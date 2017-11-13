@@ -27,6 +27,7 @@ export class AccountService {
         });
     }
 
+    
     public getUser(): Observable<User> {
         return this.httpClient.get<User>('users');
     }

@@ -1,0 +1,61 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding class="login-bg ">
+  <ion-grid *ngIf="!!form">
+      <form [formGroup]="form" (ngSubmit)="login()" class="margin-top-65 bg-green" novalidate>
+          <ion-row>
+              <ion-col col-12>
+                  <ion-item>
+                      <ion-label color="primary" floating>תעודת זהות</ion-label>
+                      <ion-input type="text" formControlName="israelId"></ion-input>
+                  </ion-item>
+                  <ion-card class="errors" *ngIf="!form.controls['israelId'].valid && form.controls['israelId'].touched">
+                      <ion-card-content>
+                          <ion-list no-lines>
+                              <span *ngIf="form.controls['israelId'].hasError('required')">שדה חובה</span>
+                              <span *ngIf="form.controls['israelId'].hasError('israelId')">תעודת זהות לא חוקית</span>
+                          </ion-list>
+                      </ion-card-content>
+                  </ion-card>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                  <ion-item>
+                      <ion-label color="primary" floating>סיסמא</ion-label>
+                      <ion-input type="password" formControlName="password"></ion-input>
+                  </ion-item>
+                  <ion-card class="errors" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+                      <ion-card-content>
+                          <ion-list no-lines>
+                              <span *ngIf="form.controls['password'].hasError('required')">שדה חובה</span>
+                          </ion-list>
+                      </ion-card-content>
+                  </ion-card>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6>
+                  <button type="submit" [disabled]="!form.valid" ion-button secondary>התחבר</button>
+              </ion-col>
+              <ion-col col-6>
+                  <button  type="button" ion-button primary>משתמש חדש</button>
+              </ion-col>
+          </ion-row>
+      </form>
+  </ion-grid>
+</ion-content>
+
