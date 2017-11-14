@@ -1,3 +1,4 @@
+import { TasksPage } from './../tasks/tasks';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListPage } from '../list/list';
@@ -18,7 +19,7 @@ export class HomePage {
 
   public rows: any[][] = [
     [
-      { title: 'המשימות שלי', page: ListPage, icon: 'missions.jpg', size: 'full' }
+      { title: 'המשימות שלי', page: TasksPage, icon: 'missions.jpg', size: 'full' }
     ],
     [
       { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'missions.jpg', size: 'half' },
@@ -42,7 +43,7 @@ export class HomePage {
   }
 
   public openPage(p: any){
-    this.navCtrl.push(p);
+    this.navCtrl.push(p, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
 
 }

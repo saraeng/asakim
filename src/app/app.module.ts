@@ -1,3 +1,4 @@
+import { TasksPage } from './../pages/tasks/tasks';
 import { HomePageModule } from './../pages/home/home.module';
 import { LoginPageModule } from './../pages/login/login.module';
 import { AsakimHttpInterceptor } from './../@core/services/asakim-http-interceptor.service';
@@ -13,11 +14,13 @@ import { AsakimApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TasksPageModule } from '../pages/tasks/tasks.module';
 
 const ASAKIM_PAGES = [
   MainPageModule,
   HomePageModule,
   ListPageModule,
+  TasksPageModule,
   LoginPageModule
 ];
 

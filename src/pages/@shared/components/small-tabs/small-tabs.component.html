@@ -1,0 +1,5 @@
+<ul class="small-tabs">
+    <li *ngFor="let tab of tabs">
+        <span [ngClass]="{'active': selectedTab===tab.value }" (click)="click(tab.value)">{{tab.label}}</span>
+    </li>
+</ul>

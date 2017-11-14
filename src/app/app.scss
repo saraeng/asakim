@@ -19,6 +19,11 @@
 font-family: 'Rubik';
 src: url(/assets/fonts/Rubik-Regular.ttf) format("truetype");
 }
+
+$SIDEMENU_TOP:  #4d2a88;
+$SIDEMENU_BOTTOM: #242566;
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
 body{
     font-family: 'Rubik' !important;
     .scroll-content{
@@ -39,10 +44,31 @@ body{
             text-align: center;
         }
     }
+
+    .childs-left{
+        > *{
+            float: left;
+        }
+    }
+
+    .key-value{
+        span{
+            width: 50%;
+            display: inline-block;
+        }
+    }
+
+    p.normal{
+        white-space: normal;
+    }
+    .bold{
+        font-weight: bold;
+    }
+
+    .black{
+        color: $SIDEMENU_BOTTOM;
+    }
 }
-$SIDEMENU_TOP:  #4d2a88;
-$SIDEMENU_BOTTOM: #242566;
-$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
 .toolbar {
     .toolbar-title,

@@ -1,0 +1,10 @@
+<div [ngSwitch]="status" class="task-status">
+    <div *ngSwitchCase="0">
+        <div class="status-active"></div>
+        <p>פעיל</p>
+    </div>
+    <div *ngSwitchCase="1">
+        <ion-icon name="checkmark"></ion-icon>
+        <p>הסתיים</p>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<ion-list>
+    <ion-list-header *ngIf="!!popoverHeadline">{{popoverHeadline}}</ion-list-header>
+    <button *ngFor="let item of popoverActions" ion-item (click)="execute(item)">{{item.text}}</button>
+    <button *ngIf="showBack" ion-item (click)="dismiss()">חזור</button>
+</ion-list>
