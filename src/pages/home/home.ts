@@ -19,19 +19,19 @@ export class HomePage {
 
   public rows: any[][] = [
     [
-      { title: 'המשימות שלי', page: TasksPage, icon: 'missions.jpg', size: 'full' }
+      { title: 'המשימות שלי', page: TasksPage, icon: 'missions.JPG', size: 'full' }
     ],
     [
-      { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'missions.jpg', size: 'half' },
-      { title: 'שירותי יעוץ', page: ListPage, icon: 'missions.jpg', size: 'half' }
+      { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'missions.JPG', size: 'half' },
+      { title: 'שירותי יעוץ', page: ListPage, icon: 'missions.JPG', size: 'half' }
     ],
     [
-      { title: 'שעות יעוץ לאישור', page: ListPage, icon: 'missions.jpg', size: 'half' },
-      { title: 'הדרכות', page: ListPage, icon: 'missions.jpg', size: 'half' }
+      { title: 'שעות יעוץ לאישור', page: ListPage, icon: 'missions.JPG', size: 'half' },
+      { title: 'הדרכות', page: ListPage, icon: 'missions.JPG', size: 'half' }
     ],
     [
-      { title: 'מימון', page: ListPage, icon: 'missions.jpg', size: 'half' },
-      { title: 'מענקים', page: ListPage, icon: 'missions.jpg', size: 'half' }
+      { title: 'מימון', page: ListPage, icon: 'missions.JPG', size: 'half' },
+      { title: 'מענקים', page: ListPage, icon: 'missions.JPG', size: 'half' }
     ],
   ];
 
