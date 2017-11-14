@@ -2,5 +2,7 @@
   "name": "asakim",
   "app_id": "84e30e5c",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
