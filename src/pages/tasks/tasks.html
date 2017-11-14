@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
   <ion-card>
     <ion-card-header>
       <ion-grid>
@@ -30,7 +30,7 @@
 
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let task of tasks | taskFilter:selectedTabMode">
+        <ion-item *ngFor="let task of tasks | taskFilter:selectedTabMode" class="regular">
           <ion-item>
             <task-status [status]="task.status" item-start></task-status>
             <h2 class="task-type bold">{{task.type}}</h2>
