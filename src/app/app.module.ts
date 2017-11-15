@@ -1,4 +1,3 @@
-import { TasksPage } from './../pages/tasks/tasks';
 import { HomePageModule } from './../pages/home/home.module';
 import { LoginPageModule } from './../pages/login/login.module';
 import { AsakimHttpInterceptor } from './../@core/services/asakim-http-interceptor.service';

@@ -1,7 +1,6 @@
 import { PopoverAction } from '../models/popover-action';
-import { Component, Input } from '@angular/core';
-import { ViewController, AlertController, NavParams } from 'ionic-angular';
-import { Platform } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { ViewController, NavParams } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
@@ -18,7 +17,6 @@ export class PopoverMenuPage {
 
   constructor(private viewCtrl: ViewController,
               private navParams: NavParams,
-              private plt: Platform,
               private iab: InAppBrowser) {
     this.popoverActions = navParams.data.popoverActions;
     this.popoverHeadline = navParams.data.popoverHeadline;

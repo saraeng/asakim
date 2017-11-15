@@ -13,13 +13,13 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content>
   <ion-card>
     <ion-card-header>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <h1>המשימות שלי</h1>
+            <h2 class="bold">המשימות שלי</h2>
           </ion-col>
           <ion-col class="childs-left">
             <small-tabs [tabs]="tabs" (tabChanged)="tabChanged($event)"></small-tabs>
@@ -34,8 +34,34 @@
           <ion-item>
             <task-status [status]="task.status" item-start></task-status>
             <h2 class="task-type bold">{{task.type}}</h2>
-            <h2 class="bold">{{task.title}}</h2>
-            <p class="normal" *ngIf="!!task.open">{{task.details}}</p>
+            <h2 *ngIf="!task.open" class="bold">{{task.title}}</h2>
+            <div *ngIf="!!task.open">
+              <form [formGroup]="taskForm" (ngSubmit)="updateTask(task)" novalidate>
+                <ion-item>
+                  <ion-textarea formControlName="details" name="details"></ion-textarea>
+                </ion-item>
+                <ion-card class="errors" *ngIf="!taskForm.controls['details'].valid && taskForm.controls['details'].touched">
+                  <ion-card-content>
+                    <ion-list no-lines>
+                      <span *ngIf="taskForm.controls['details'].hasError('required')">שדה חובה</span>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
+                <ion-item class="key-value">
+                  <ion-label>לביצוע עד</ion-label>
+                  <ion-datetime displayFormat="DD.MM.YY" pickerFormat="DD MMMM YYYY" formControlName="dueDate" name="dueDate"></ion-datetime>
+                </ion-item>
+                <ion-card class="errors" *ngIf="!taskForm.controls['dueDate'].valid && taskForm.controls['dueDate'].touched">
+                  <ion-card-content>
+                    <ion-list no-lines>
+                      <span *ngIf="taskForm.controls['dueDate'].hasError('required')">שדה חובה</span>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
+                <button [disabled]="!taskForm.valid" type="submit" ion-button>שמור</button>
+              </form>
+            </div>
+            <!-- <p class="normal" *ngIf="!!task.open">{{task.details}}</p> -->
             <div *ngIf="!task.open" class="key-value">
               <span><small>לביצוע עד</small></span>
               <span class="bold"><small>{{task.dueDate | date:'dd.MM.yy'}}</small></span>
@@ -44,7 +70,7 @@
               <span><small>תאריך יצירה</small></span>
               <span><small>{{task.created | date:'dd.MM.yy'}}</small></span>
             </div>
-            <button ion-button clear item-end (click)="task.open = !task.open"><ion-icon name="{{task.open ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
+            <button ion-button clear item-end (click)="editTask(task)"><ion-icon name="{{task.open ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
             </button>
           </ion-item>
         </ion-item>
