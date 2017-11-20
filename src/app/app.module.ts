@@ -1,3 +1,4 @@
+import { ContactUsPageModule } from './../pages/contact-us/contact-us.module';
 import { HomePageModule } from './../pages/home/home.module';
 import { LoginPageModule } from './../pages/login/login.module';
 import { AsakimHttpInterceptor } from './../@core/services/asakim-http-interceptor.service';
@@ -14,13 +15,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TasksPageModule } from '../pages/tasks/tasks.module';
-
+import { FCM } from '@ionic-native/fcm';
+import { GoogleMaps } from '@ionic-native/google-maps';
 const ASAKIM_PAGES = [
   MainPageModule,
   HomePageModule,
   ListPageModule,
   TasksPageModule,
-  LoginPageModule
+  LoginPageModule,
+  ContactUsPageModule
 ];
 
 @NgModule({
@@ -40,9 +43,11 @@ const ASAKIM_PAGES = [
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleMaps,
+    FCM,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: AsakimHttpInterceptor, multi: true }
-    
+
   ]
 })
 export class AppModule { }

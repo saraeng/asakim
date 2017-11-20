@@ -34,7 +34,7 @@
           <ion-item>
             <task-status [status]="task.status" item-start></task-status>
             <h2 class="task-type bold">{{task.type}}</h2>
-            <h2 *ngIf="!task.open" class="bold">{{task.title}}</h2>
+            <p *ngIf="!task.open" class="bold">{{task.details}}</p>
             <div *ngIf="!!task.open">
               <form [formGroup]="taskForm" (ngSubmit)="updateTask(task)" novalidate>
                 <ion-item>
@@ -80,6 +80,6 @@
   </ion-card>
 
   <ion-fab left bottom>
-    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="light" (click)="addTask()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

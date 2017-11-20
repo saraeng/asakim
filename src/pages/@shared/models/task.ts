@@ -1,9 +1,8 @@
 export class Task {
     type: string;
-    title: string;
     status: TaskStatus;
-    dueDate: Date;
-    created: Date;
+    dueDate?: string | Date ;
+    created: string | Date;
     open: boolean = false;
     details: string;
 }

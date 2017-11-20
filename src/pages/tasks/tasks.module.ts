@@ -1,3 +1,4 @@
+import { CreateTaskPage } from './components/create-task-page/create-task-page.components';
 import { TaskStatusIndicator } from './components/task-status/task-status.components';
 import { TaskFilter } from './pipes/task.pipe';
 import { PagesSharedModule } from './../@shared/shared.module';
@@ -9,11 +10,15 @@ import { TasksPage } from './tasks';
   declarations: [
     TasksPage,
     TaskFilter,
-    TaskStatusIndicator
+    TaskStatusIndicator,
+    CreateTaskPage
   ],
   imports: [
     PagesSharedModule,
     IonicPageModule.forChild(TasksPage),
   ],
+  entryComponents: [
+    CreateTaskPage,
+  ]
 })
 export class TasksPageModule {}

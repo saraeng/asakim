@@ -1,0 +1,28 @@
+.task-status{
+    width: 33px;
+    margin: auto;
+    margin-left: 15px;
+
+    .status-active{
+        width: 15px;
+        height: 15px;
+        background-color: red;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        display: block;
+        margin: auto;
+        margin-top: 10px !important;
+    }   
+
+    ion-icon{
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+}

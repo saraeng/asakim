@@ -1,3 +1,4 @@
+import { FCM } from '@ionic-native/fcm';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -11,7 +12,7 @@ export class AsakimApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fcm: FCM) {
     this.initializeApp();
   }
 
@@ -22,7 +23,26 @@ export class AsakimApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
+      // if (this.platform.is('android') || this.platform.is('ios')) {
+      //   this.fcmInit();
+      // }
+
     });
+  }
+
+  private fcmInit() {
+    this.fcm.subscribeToTopic('updates');
+    this.fcm.getToken().then(token => {
+      //backend.registerToken(token);
+    });
+    this.fcm.onNotification().subscribe(data => {
+      if (data.wasTapped) {
+        console.log("Received in background");
+      } else {
+        console.log("Received in foreground");
+      };
+    })
+
   }
 
 

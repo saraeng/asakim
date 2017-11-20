@@ -1,8 +1,9 @@
+import { CreateTaskPage } from './components/create-task-page/create-task-page.components';
 import { PopoverOptions } from './../@shared/directives/popover-menu/models/popover-options';
 import { Task, TaskStatus } from './../@shared/models/task';
 import { SmallTab } from './../@shared/components/small-tabs/models/small-tab';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SelectItem } from '../../@core/models/general/select-item';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -25,8 +26,9 @@ export class TasksPage implements OnInit {
   public tasks: Task[] = [];
   public selectedTabMode: string = 'all';
   public taskForm: FormGroup;
+  public moreOptions: PopoverOptions;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fb: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private fb: FormBuilder) {
     this.tabs = [
       { label: 'הכל', value: 'all' },
       { label: 'פעיל', value: 'active' },
@@ -34,21 +36,31 @@ export class TasksPage implements OnInit {
     ];
 
     this.tasks = [
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך מאוד', dueDate: new Date(), created: new Date(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך מאוד', dueDate: new Date(), created: new Date(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה ארוך מאוד', dueDate: new Date(), created: new Date(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', title: 'תוכן משימה', dueDate: new Date(), created: new Date(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
+      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
     ];
 
     this.initTaskForm();
+
+    this.moreOptions = {
+      popoverHeadline: 'משימה חדשה',
+      popoverActions: [
+        { text: 'תמונות', icon: null, link: 'http://adimobileserver.zapto.org:8080/VisualLearning/index.html', action: null },
+        { text: 'וידאו', icon: null, link: 'http://adimobile.eternity.co.il/teo/videos.html', action: null },
+        { text: 'אינטרקטיבי', icon: null, link: 'http://adimobile.eternity.co.il/teo/', action: null },
+      ]
+    };
+
   }
 
   ngOnInit(): void {
@@ -77,6 +89,11 @@ export class TasksPage implements OnInit {
     t.dueDate = formVal.dueDate;
     this.initTaskForm();
     this.editTask(t);
+  }
+
+  public addTask() {
+    let modal = this.modalCtrl.create(CreateTaskPage);
+    modal.present();
   }
 
 

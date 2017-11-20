@@ -1,5 +1,4 @@
 import { SelectItem } from './../../../../@core/models/general/select-item';
-import { SmallTab } from './models/small-tab';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

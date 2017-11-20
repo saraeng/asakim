@@ -7,14 +7,20 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons>
+      <button ion-button icon-only [popover]="userOptions">
+        <ion-icon  name="person" ></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <ion-title>שולחן עבודה</ion-title>
+    
     <ion-buttons start>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-
     </ion-buttons>
 
-    <ion-title>שולחן עבודה</ion-title>
   </ion-navbar>
 
 </ion-header>

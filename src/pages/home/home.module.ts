@@ -1,3 +1,4 @@
+import { PagesSharedModule } from './../@shared/shared.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HomePage } from './home';
@@ -8,6 +9,7 @@ import { HomePage } from './home';
   ],
   imports: [
     IonicPageModule.forChild(HomePage),
+    PagesSharedModule
   ],
 })
 export class HomePageModule {}
