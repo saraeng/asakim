@@ -81,7 +81,7 @@ export class MalamValidators {
     public static phone(c: FormControl) {
         const phoneno = /^\d{9}$/;
 
-        return (!c.hasError('required') && c.value.match(phoneno)) || (!c.hasError('required') && !c.value) ? null : {
+        return (!!c.value && !c.hasError('required') && c.value.match(phoneno)) || (!c.hasError('required') && !c.value) ? null : {
             phone: {
                 valid: false
             }

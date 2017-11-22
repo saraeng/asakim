@@ -1,3 +1,4 @@
+import { UserSettingsPageModule } from './../pages/user-settings/user-settings.module';
 import { ContactUsPageModule } from './../pages/contact-us/contact-us.module';
 import { HomePageModule } from './../pages/home/home.module';
 import { LoginPageModule } from './../pages/login/login.module';
@@ -17,13 +18,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TasksPageModule } from '../pages/tasks/tasks.module';
 import { FCM } from '@ionic-native/fcm';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { NgxGaugeModule } from 'ngx-gauge';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 const ASAKIM_PAGES = [
   MainPageModule,
   HomePageModule,
   ListPageModule,
   TasksPageModule,
   LoginPageModule,
-  ContactUsPageModule
+  ContactUsPageModule,
+  UserSettingsPageModule
 ];
 
 @NgModule({
@@ -32,9 +37,11 @@ const ASAKIM_PAGES = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NgxGaugeModule,
     IonicModule.forRoot(AsakimApp),
     AsakimCoreModule.forRoot(),
-    ...ASAKIM_PAGES
+    ...ASAKIM_PAGES,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

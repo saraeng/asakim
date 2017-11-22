@@ -1,0 +1,44 @@
+<form [formGroup]="form">
+    <ion-item>
+        <ion-label color="primary" floating>סוג העסק</ion-label>
+        <ion-input type="text" formControlName="buisnessType"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>מספר זיהוי</ion-label>
+        <ion-input type="text" formControlName="identity"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>שם פרטי</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>שם משפחה</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>תמונה</ion-label>
+        <img src="{{form.controls['image'].value}}" />
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>תאריך לידה</ion-label>
+        <ion-datetime displayFormat="DD.MM.YY" pickerFormat="DD MMMM YYYY" formControlName="birthday" name="birthday"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>מין</ion-label>
+        <ion-input type="text" formControlName="gender"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>התמחות יועץ</ion-label>
+        <ion-input type="text" formControlName="expertise"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>התמחות מרצה</ion-label>
+        <ion-input type="text" formControlName="lectorExpertise"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>אזורי פעילות</ion-label>
+        <ion-select formControlName="activityZones" multiple="true" name="activityZones">
+            <ion-option *ngFor="let zone of activityZones" [value]="zone.value">{{zone.label}}</ion-option>
+        </ion-select>
+    </ion-item>
+</form>

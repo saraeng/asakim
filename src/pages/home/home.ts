@@ -4,6 +4,7 @@ import { TasksPage } from './../tasks/tasks';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Platform } from 'ionic-angular';
 import { ListPage } from '../list/list';
+import { UserSettingsPage } from '../user-settings/user-settings';
 
 /**
  * Generated class for the HomePage page.
@@ -40,33 +41,33 @@ export class HomePage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform) {
-    this.userOptions = {
-      popoverHeadline: null,
-      popoverActions: [
-        {
-          text: 'עזרה',
-          icon: null,
-          link: null,
-          action: (popover: ViewController) => {
-            popover.dismiss();
-          }
-        }, {
-          text: 'צור קשר',
-          icon: null,
-          link: null,
-          action: (popover: ViewController) => {
-            this.navCtrl.push(ContactUsPage, {});
-            popover.dismiss();
-          }
-        },
-        {
-          text: 'צא',
-          icon: null,
-          link: null,
-          action: () => this.platform.exitApp()
-        }
-      ]
-    };
+    // this.userOptions = {
+    //   popoverHeadline: null,
+    //   popoverActions: [
+    //     {
+    //       text: 'עזרה',
+    //       icon: null,
+    //       link: null,
+    //       action: (popover: ViewController) => {
+    //         popover.dismiss();
+    //       }
+    //     }, {
+    //       text: 'צור קשר',
+    //       icon: null,
+    //       link: null,
+    //       action: (popover: ViewController) => {
+    //         this.navCtrl.push(ContactUsPage, {});
+    //         popover.dismiss();
+    //       }
+    //     },
+    //     {
+    //       text: 'צא',
+    //       icon: null,
+    //       link: null,
+    //       action: () => this.platform.exitApp()
+    //     }
+    //   ]
+    // };
   }
 
   ionViewDidLoad() {
@@ -75,6 +76,10 @@ export class HomePage {
 
   public openPage(p: any) {
     this.navCtrl.push(p, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
+  }
+
+  public showSettings(){
+    this.navCtrl.push(UserSettingsPage, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
 
 }

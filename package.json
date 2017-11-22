@@ -47,7 +47,10 @@
     "zone.js": "0.8.18"
   },
   "devDependencies": {
+    "@angular/animations": "^5.0.2",
     "@ionic/app-scripts": "^3.1.0",
+    "ng2-kw-gauge": "0.0.8",
+    "ngx-gauge": "^1.0.0-beta",
     "typescript": "2.4.2"
   },
   "description": "An Ionic project",

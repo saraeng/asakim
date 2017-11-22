@@ -1,0 +1,10 @@
+<div *ngIf="!!showGauge">
+    <ngx-gauge *ngIf="!!gauge" type="full" foregroundColor="#a33bda" duration="{{animate ? 500 : 50}}" label=" " [value]="gauge.value" append="%">
+    </ngx-gauge>
+</div>
+<ion-list>
+    <ion-item *ngFor="let item of items">
+        <h4>{{item.label}}</h4>
+        <progress-bar [progress]="item.value"></progress-bar>
+    </ion-item>
+</ion-list>

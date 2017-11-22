@@ -1,0 +1,61 @@
+page-user-settings {
+
+    ion-card{
+        border-radius: 5px !important;
+        ion-card-header{
+            text-align: right;
+            padding-right: 0 !important;
+            font-weight: bold;
+            margin: 0 16px;
+            margin-bottom: 15px !important;
+            border-bottom: 1px solid #ababab;
+        }
+
+        &.no-border{
+            ion-card-header{
+                border-bottom: none;
+            }
+        }
+    }
+    
+
+    .float{
+        position: absolute;
+        width: 90%;
+        ion-card{
+            box-shadow: 1px 9px 20px rgba(28, 21, 63, 0.5411764705882353);
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 1s, opacity 1s linear;
+        }
+        
+        
+        &.float-1{
+            top:0;
+            padding: 0 30px;
+        }
+        &.float-2{
+            top:10%;
+            padding: 0 20px;
+            
+        }
+        &.float-3{
+            top:20%;
+            padding: 0 10px;
+            
+        }
+        &.float-4{
+            top:30%;
+            padding: 0 1px;
+            
+        }
+    }
+
+    .presented{
+        ion-card{
+            visibility: visible;
+            opacity: 1;
+            min-height: 450px;
+        }            
+    }
+}

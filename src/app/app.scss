@@ -90,6 +90,21 @@ body{
       }
 }
 
+.fullscreen{
+    height: 100%;
+}
+
+ngx-gauge{
+    margin: auto;
+    display: block !important;
+}
+
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float: right;
+}
 .menu-inner{
         .toolbar {
             ion-title {
@@ -114,4 +129,3 @@ body{
     background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
     background-repeat: repeat-x;
 }
-

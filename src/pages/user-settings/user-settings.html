@@ -1,0 +1,79 @@
+<!--
+  Generated template for the UserSettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="person"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="fullscreen" *ngIf="showAll" [ngClass]="{'presented': showAll}">
+    <div [@fadeIn]="''" *ngFor="let item of settingsFragments; let i = index;" class="float float-{{i + 1}}">
+      <ion-card padding (click)="setCurrentSettings(item)" class="no-border">
+        <ion-card-header>
+          {{item.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <div [ngSwitch]="item.component">
+            <div *ngSwitchCase="'personal'">
+              <page-user-settings-personal></page-user-settings-personal>
+            </div>
+            <div *ngSwitchCase="'score'">
+              <user-settings-score [animate]="false"></user-settings-score>
+            </div>
+            <div *ngSwitchCase="'push'">
+              <user-settings-push [items]="pushSettings"></user-settings-push>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="fullscreen" *ngIf="!showAll && !!currentSettings">
+    <ion-card padding>
+      <ion-card-header>
+        {{currentSettings.title}}
+      </ion-card-header>
+      <ion-card-content>
+        <div [ngSwitch]="currentSettings.component">
+          <div *ngSwitchCase="'personal'">
+            <page-user-settings-personal></page-user-settings-personal>
+          </div>
+          <div *ngSwitchCase="'score'">
+            <user-settings-score></user-settings-score>
+          </div>
+          <div *ngSwitchCase="'push'">
+            <user-settings-push [items]="pushSettings"></user-settings-push>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-fab *ngIf="!showAll" center bottom>
+    <button ion-fab color="primary" (pan)="panEvent($event)">
+      <ion-icon name="ion-reply-all"></ion-icon>
+    </button>
+  </ion-fab>
+  <!-- <ion-slides direction="vertical" effect="coverflow" paginationType="bullets" [pager]="true">
+    <ion-slide>
+      <page-user-settings-personal></page-user-settings-personal>>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>-->
+</ion-content>

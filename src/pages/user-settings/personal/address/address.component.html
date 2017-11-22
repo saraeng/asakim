@@ -1,0 +1,32 @@
+<form [formGroup]="form">
+    <ion-item>
+        <ion-label color="primary" floating>ישוב</ion-label>
+        <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>רחוב</ion-label>
+        <ion-input type="text" formControlName="street"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>מספר בית</ion-label>
+        <ion-input type="text" formControlName="homeNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>דירה</ion-label>
+        <ion-input type="text" formControlName="appartment"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>מיקוד</ion-label>
+        <ion-input type="text" formControlName="postalCode"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>תא דואר</ion-label>
+        <ion-input type="text" formControlName="mailNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>אזור</ion-label>
+        <ion-select formControlName="area" multiple="true" name="area">
+            <ion-option *ngFor="let area of areas" [value]="area.value">{{area.label}}</ion-option>
+        </ion-select>
+    </ion-item>
+</form>
