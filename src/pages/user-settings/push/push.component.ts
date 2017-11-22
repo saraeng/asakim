@@ -1,3 +1,4 @@
+import { SelectItem } from './../../../@core/models/general/select-item';
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -10,7 +11,7 @@ export class PushSettingsPage {
     constructor() {
     }
 
-    @Input() public items: any[];
+    @Input() public items: SelectItem[];
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad PushSettingsPage');
