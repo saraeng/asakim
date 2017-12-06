@@ -1,3 +1,4 @@
+import { LecturesPageModule } from './../pages/lectures/lectures.module';
 import { UserSettingsPageModule } from './../pages/user-settings/user-settings.module';
 import { ContactUsPageModule } from './../pages/contact-us/contact-us.module';
 import { HomePageModule } from './../pages/home/home.module';
@@ -28,7 +29,8 @@ const ASAKIM_PAGES = [
   TasksPageModule,
   LoginPageModule,
   ContactUsPageModule,
-  UserSettingsPageModule
+  UserSettingsPageModule,
+  LecturesPageModule
 ];
 
 @NgModule({

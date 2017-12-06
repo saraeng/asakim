@@ -1,0 +1,84 @@
+<ion-row>
+    <ion-col padding>
+        <h1>מפגשים</h1>
+    </ion-col>
+</ion-row>
+<ion-row *ngFor="let event of lecture.events; let i = index;" (click)="toggleAccordion(i)">
+    <ion-col>
+        <ion-row>
+            <ion-col col-7 start>
+                <h2>{{event.subject}}</h2>
+                <p>{{event.startDate | date:'dd.MM.yy'}}</p>
+            </ion-col>
+            <ion-col col-3>
+                <p>{{[event.startDate, event.endDate] | period}}</p>
+            </ion-col>
+            <ion-col col-2 end>
+                <ion-icon *ngIf="!accordionIndexes[i]" name="ios-arrow-down"></ion-icon>
+                <ion-icon *ngIf="!!accordionIndexes[i]" name="ios-arrow-up"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="!!projectedEvent && projectedEvent === event">
+            <ion-col>
+                <h1>{{projectedEvent.subject}}</h1>
+                <ion-row>
+                    <ion-col col-2>
+                        <img src="assets/icon/2.png" alt="">
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>תאריך המפגש</h4>
+                        <p>{{event.startDate | date:'dd.MM.yy'}}</p>
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>יום</h4>
+                        <p>{{event.startDate | date:'EEEE'}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-2>
+                        <img src="assets/icon/3.png" alt="">
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>שעת התחלה</h4>
+                        <p>{{event.startDate | date:'hh:mm'}}</p>
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>שעת סיום</h4>
+                        <p>{{event.endDate | date:'hh:mm'}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-2>
+                        <img src="assets/icon/3.png" alt="">
+                    </ion-col>
+                    <ion-col col-10>
+                        <h4>מרצה</h4>
+                        <p>{{event.lecturer}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-2>
+                        <img src="assets/icon/3.png" alt="">
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>רשומים</h4>
+                        <p>{{event.subscribers}}</p>
+                    </ion-col>
+                    <ion-col col-5>
+                        <h4>נוכחים</h4>
+                        <p>{{event.participants}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-2>
+                        <img src="assets/icon/3.png" alt="">
+                    </ion-col>
+                    <ion-col col-10>
+                        <h4>נוכחות הלקוח</h4>
+                        <p>{{event.isUserParticipant | hebrewBoolean}}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+</ion-row>

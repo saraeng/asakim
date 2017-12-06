@@ -1,3 +1,7 @@
+import { HebrewBooleanFilter } from './pipes/hebrew-bool.pipe';
+import { PeriodFilter } from './pipes/period.pipe';
+import { TabStatusIndicator } from './components/tab-status/tab-status.components';
+import { BaseTabPage } from './common/base-tab-page';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +13,13 @@ import { PopoverMenuDirective } from './directives/popover-menu/popover-menu.dir
 import { PopoverMenuPage } from './directives/popover-menu/popover-menu-page/popover-menu-page';
 import { ProgressBar } from './components/progress-bar/progress-bar.component';
 import { NgxGaugeModule } from 'ngx-gauge';
+import { TabFilter } from './pipes/tab.pipe';
 
+
+const COMMON_COMPONENTS = [BaseTabPage];
+const PIPES = [TabFilter, PeriodFilter, HebrewBooleanFilter];
+const COMPONENTS = [TabStatusIndicator, SmallTabs, PopoverMenuDirective, ProgressBar];
+const ENTRY_COMPONENTS = [PopoverMenuPage];
 
 @NgModule({
     imports: [
@@ -19,10 +29,19 @@ import { NgxGaugeModule } from 'ngx-gauge';
         AsakimCoreModule,
         NgxGaugeModule
     ],
-    declarations: [SmallTabs, PopoverMenuDirective, PopoverMenuPage, ProgressBar],
-    exports: [CommonModule, BrowserModule, AsakimCoreModule, SmallTabs, PopoverMenuDirective, PopoverMenuPage, ProgressBar, NgxGaugeModule],
+    declarations: [BaseTabPage, ...PIPES, ...COMMON_COMPONENTS, ...ENTRY_COMPONENTS, ...COMPONENTS],
+    exports: [
+        CommonModule,
+        BrowserModule,
+        AsakimCoreModule,
+        NgxGaugeModule,
+        ...PIPES,
+        ...COMMON_COMPONENTS,
+        ...ENTRY_COMPONENTS,
+        ...COMPONENTS
+    ],
     providers: [InAppBrowser],
-    entryComponents: [PopoverMenuPage]
+    entryComponents: [...ENTRY_COMPONENTS]
 })
 export class PagesSharedModule {
 

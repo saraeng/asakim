@@ -1,11 +1,13 @@
+import { BaseTabPage } from './../@shared/common/base-tab-page';
 import { CreateTaskPage } from './components/create-task-page/create-task-page.components';
 import { PopoverOptions } from './../@shared/directives/popover-menu/models/popover-options';
-import { Task, TaskStatus } from './../@shared/models/task';
+import { Task } from './../@shared/models/task';
 import { SmallTab } from './../@shared/components/small-tabs/models/small-tab';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SelectItem } from '../../@core/models/general/select-item';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TabStatus } from '../@shared/models/tabs/tab-status';
 
 /**
  * Generated class for the TasksPage page.
@@ -20,35 +22,52 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: 'tasks.html',
   styles: ['./tasks.scss']
 })
-export class TasksPage implements OnInit {
+export class TasksPage extends BaseTabPage<Task> implements OnInit {
 
-  public tabs: SelectItem[] = [];
-  public tasks: Task[] = [];
-  public selectedTabMode: string = 'all';
+  // public tabs: SelectItem[] = [];
+  // public tasks: Task[] = [];
+  // public selectedTabMode: string = 'all';
   public taskForm: FormGroup;
   public moreOptions: PopoverOptions;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private fb: FormBuilder) {
-    this.tabs = [
+    super([
       { label: 'הכל', value: 'all' },
       { label: 'פעיל', value: 'active' },
       { label: 'היסטוריה', value: 'history' },
-    ];
-
-    this.tasks = [
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Completed },
-      { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה ', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TaskStatus.Active },
-    ];
+    ], [
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+      ]);
+    // this.tabs = [
+    //   { label: 'הכל', value: 'all' },
+    //   { label: 'פעיל', value: 'active' },
+    //   { label: 'היסטוריה', value: 'history' },
+    // ];
+    // this.tasks = [
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+    //   { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+    // ];
 
     this.initTaskForm();
 
@@ -97,11 +116,11 @@ export class TasksPage implements OnInit {
   }
 
 
-  public tabChanged(v: string) {
-    if (['all', 'active', 'history'].indexOf(v) >= 0) {
-      this.selectedTabMode = v;
-    }
-  }
+  // public tabChanged(v: string) {
+  //   if (['all', 'active', 'history'].indexOf(v) >= 0) {
+  //     this.selectedTabMode = v;
+  //   }
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TasksPage');

@@ -1,0 +1,9 @@
+page-lecture-details{
+    button[ion-button]{
+        font-weight: bold;
+        border-radius: 0 !important;
+        &.active{
+            border-bottom: solid 1px #a33bda;
+        }
+    }
+}

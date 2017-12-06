@@ -24,10 +24,26 @@ $SIDEMENU_TOP:  #4d2a88;
 $SIDEMENU_BOTTOM: #242566;
 $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
+
+
 body{
     font-family: 'Rubik' !important;
     .scroll-content{
         background: #dee5f0 !important;
+    }
+    .bg-grey{
+        background: #f1f5f8 !important;
+    }
+
+    .icon-sm{
+        width: 25px;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    .no-pad-sides{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     .btn-image{
         border: solid 1px #ebebeb;
@@ -57,6 +73,8 @@ body{
             display: inline-block;
         }
     }
+
+   
 
     p.normal{
         white-space: normal;

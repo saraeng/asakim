@@ -12,9 +12,9 @@
         <ion-icon  name="person" ></ion-icon>
       </button>
     </ion-buttons>
-    
+
     <ion-title>שולחן עבודה</ion-title>
-    
+
     <ion-buttons start>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -30,7 +30,7 @@
   <ion-grid>
     <ion-row *ngFor="let row of rows">
       <ion-col *ngFor="let page of row">
-        <div class="btn-image" tappable (click)="openPage(page.page)">
+        <div class="btn-image {{page?.css}}" tappable (click)="openPage(page.page)">
           <img src="assets/imgs/{{page.icon}}">
           <p>{{page.title}}</p>
         </div>

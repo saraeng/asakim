@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Platform } from 'ionic-angular';
 import { ListPage } from '../list/list';
 import { UserSettingsPage } from '../user-settings/user-settings';
+import { LecturesPage } from '../lectures/lectures';
 
 /**
  * Generated class for the HomePage page.
@@ -24,19 +25,19 @@ export class HomePage {
 
   public rows: any[][] = [
     [
-      { title: 'המשימות שלי', page: TasksPage, icon: 'missions.JPG', size: 'full' }
+      { title: 'המשימות שלי', page: TasksPage, icon: 'icon-14.png', size: 'full', css: 'big' }
     ],
     [
-      { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'missions.JPG', size: 'half' },
-      { title: 'שירותי יעוץ', page: ListPage, icon: 'missions.JPG', size: 'half' }
+      { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'icon-15.png', size: 'half' },
+      { title: 'שירותי יעוץ', page: ListPage, icon: 'icon-16.png', size: 'half' }
     ],
     [
-      { title: 'שעות יעוץ לאישור', page: ListPage, icon: 'missions.JPG', size: 'half' },
-      { title: 'הדרכות', page: ListPage, icon: 'missions.JPG', size: 'half' }
+      { title: 'שעות יעוץ לאישור', page: ListPage, icon: 'icon-10.png', size: 'half' },
+      { title: 'הדרכות', page: LecturesPage, icon: 'icon-13.png', size: 'half' }
     ],
     [
-      { title: 'מימון', page: ListPage, icon: 'missions.JPG', size: 'half' },
-      { title: 'מענקים', page: ListPage, icon: 'missions.JPG', size: 'half' }
+      { title: 'מימון', page: ListPage, icon: 'icon-19.png', size: 'half' },
+      { title: 'מענקים', page: ListPage, icon: 'icon-7.png', size: 'half' }
     ],
   ];
 
@@ -78,7 +79,7 @@ export class HomePage {
     this.navCtrl.push(p, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
 
-  public showSettings(){
+  public showSettings() {
     this.navCtrl.push(UserSettingsPage, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
 

@@ -1,0 +1,36 @@
+<ion-row>
+    <ion-col col-9>
+        <h2>{{lecture.title}}</h2>
+        <h4 color="app">{{lecture.type}}</h4>
+    </ion-col>
+    <ion-col col-3>
+        <p end>1245700</p>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col>
+        <p>{{lecture.details}}</p>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col col-2>
+        <img class="icon-sm" src="assets/icon/2.png" />
+    </ion-col>
+    <ion-col col-5>
+        <p>תאריך התחלה</p>
+        <p>{{lecture.startDate | date: 'dd.MM.yy'}}</p>
+    </ion-col>
+    <ion-col col-5>
+        <p>תאריך סיום</p>
+        <p>{{lecture.endDate | date: 'dd.MM.yy'}}</p>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col col-2>
+        <img class="icon-sm" src="assets/icon/3.png" />
+    </ion-col>
+    <ion-col col-10>
+        <p>מיקום</p>
+        <p>{{lecture.location}}</p>
+    </ion-col>
+</ion-row>
