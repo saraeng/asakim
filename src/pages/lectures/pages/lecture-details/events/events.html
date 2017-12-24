@@ -3,7 +3,7 @@
         <h1>מפגשים</h1>
     </ion-col>
 </ion-row>
-<ion-row *ngFor="let event of lecture.events; let i = index;" (click)="toggleAccordion(i)">
+<ion-row *ngFor="let event of lecture.events; let i = index;" (click)="toggleAccordion(i)" tappable>
     <ion-col>
         <ion-row>
             <ion-col col-7 start>
@@ -23,7 +23,7 @@
                 <h1>{{projectedEvent.subject}}</h1>
                 <ion-row>
                     <ion-col col-2>
-                        <img src="assets/icon/2.png" alt="">
+                        <img class="mauf-icon" src="assets/icon/calendar.png" alt="">
                     </ion-col>
                     <ion-col col-5>
                         <h4>תאריך המפגש</h4>
@@ -36,7 +36,7 @@
                 </ion-row>
                 <ion-row>
                     <ion-col col-2>
-                        <img src="assets/icon/3.png" alt="">
+                        <img class="mauf-icon" src="assets/icon/clock.png" alt="">
                     </ion-col>
                     <ion-col col-5>
                         <h4>שעת התחלה</h4>
@@ -49,7 +49,7 @@
                 </ion-row>
                 <ion-row>
                     <ion-col col-2>
-                        <img src="assets/icon/3.png" alt="">
+                        <img class="mauf-icon" src="assets/icon/suitcase.png" alt="">
                     </ion-col>
                     <ion-col col-10>
                         <h4>מרצה</h4>
@@ -58,7 +58,7 @@
                 </ion-row>
                 <ion-row>
                     <ion-col col-2>
-                        <img src="assets/icon/3.png" alt="">
+                        <img class="mauf-icon" src="assets/icon/people.png" alt="">
                     </ion-col>
                     <ion-col col-5>
                         <h4>רשומים</h4>
@@ -71,7 +71,7 @@
                 </ion-row>
                 <ion-row>
                     <ion-col col-2>
-                        <img src="assets/icon/3.png" alt="">
+                        <img class="mauf-icon" src="assets/icon/v.png" alt="">
                     </ion-col>
                     <ion-col col-10>
                         <h4>נוכחות הלקוח</h4>
