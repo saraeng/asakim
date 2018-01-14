@@ -1,3 +1,4 @@
+import { KeysPipe } from './pipes/keys.pipe';
 import { AsakimHttpInterceptor } from './services/asakim-http-interceptor.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,8 +11,8 @@ import { AccountService } from './services/account.service';
         CommonModule,
         HttpClientModule,
     ],
-    exports: [HttpClientModule],
-    declarations: [],
+    exports: [HttpClientModule, KeysPipe],
+    declarations: [KeysPipe],
     providers: [],
 })
 export class AsakimCoreModule { 

@@ -1,12 +1,23 @@
 <ion-row>
-    <ion-col padding>
+    <ion-col col-7 padding start>
         <h1>מפגשים</h1>
+    </ion-col>
+    <ion-col col-5 end>
+        <ion-item tappable>
+            <ion-label stacked>בחר הכל</ion-label>
+            <ion-checkbox (click)="selectAll()" [checked]="!!allItemsSelected"></ion-checkbox>
+        </ion-item>
     </ion-col>
 </ion-row>
 <ion-row *ngFor="let event of lecture.events; let i = index;" (click)="toggleAccordion(i)" tappable>
     <ion-col>
         <ion-row>
-            <ion-col col-7 start>
+            <ion-col col-2 start>
+                <ion-item tappable (click)="itemSelected(i)">
+                    <ion-checkbox (click)="itemSelected(i)" [checked]="selectedItems[i]"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col col-5 start>
                 <h2>{{event.subject}}</h2>
                 <p>{{event.startDate | date:'dd.MM.yy'}}</p>
             </ion-col>
@@ -18,7 +29,7 @@
                 <ion-icon *ngIf="!!accordionIndexes[i]" name="ios-arrow-up"></ion-icon>
             </ion-col>
         </ion-row>
-        <ion-row *ngIf="!!projectedEvent && projectedEvent === event">
+        <ion-row *ngIf="!!projectedEvent && projectedEvent === event && !silabosVisible">
             <ion-col>
                 <h1>{{projectedEvent.subject}}</h1>
                 <ion-row>
@@ -78,7 +89,22 @@
                         <p>{{event.isUserParticipant | hebrewBoolean}}</p>
                     </ion-col>
                 </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <button (click)="showSilabos()" ion-button color="secondary" full>הצג סילבוס</button>
+                    </ion-col>
+                </ion-row>
             </ion-col>
         </ion-row>
+        <ion-row *ngIf="!!projectedEvent && projectedEvent === event && !!silabosVisible">
+        </ion-row>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col col-6 padding start>
+        <button (click)="showSilabos()" ion-button color="secondary" block small [disabled]="!allItemsSelected">דווח ביצוע עבודה</button>
+    </ion-col>
+    <ion-col col-6 padding>
+        <button (click)="showSilabos()" ion-button color="app" block small [disabled]="!allItemsSelected">הוסף ליומן שלי</button>
     </ion-col>
 </ion-row>

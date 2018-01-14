@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
   ngOnInit(): void {
     if (!this.accountService.isLoggedIn()) {
       this.form = this.fb.group({
-        'israelId': [{ value: null, disabled: false }, Validators.compose([MalamValidators.israelId])],
+        'israelId': [{ value: null, disabled: false }, Validators.compose([MalamValidators.israelId, Validators.required])],
         'password': [{ value: null, disabled: false }, Validators.compose([Validators.required])],
       });
     } else {
@@ -42,6 +42,8 @@ export class LoginPage implements OnInit {
   }
 
   public login() {
+    this.navCtrl.setRoot(MainPage, {});
+    
     const formVal = this.form.value;
     this.accountService.login(formVal.israelId, formVal.password).toPromise().then(u => {
       if (!!u) {

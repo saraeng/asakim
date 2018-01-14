@@ -1,3 +1,4 @@
+import { FundingPageModule } from './../pages/funding/funding.module';
 import { LecturesPageModule } from './../pages/lectures/lectures.module';
 import { UserSettingsPageModule } from './../pages/user-settings/user-settings.module';
 import { ContactUsPageModule } from './../pages/contact-us/contact-us.module';
@@ -30,7 +31,8 @@ const ASAKIM_PAGES = [
   LoginPageModule,
   ContactUsPageModule,
   UserSettingsPageModule,
-  LecturesPageModule
+  LecturesPageModule,
+  FundingPageModule
 ];
 
 @NgModule({

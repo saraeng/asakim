@@ -1,36 +1,58 @@
 <ion-row>
-    <ion-col col-9>
-        <h2>{{lecture.title}}</h2>
-        <h4 color="app">{{lecture.type}}</h4>
-    </ion-col>
-    <ion-col col-3>
-        <p end>1245700</p>
+    <ion-col padding start>
+        <h1>משוב</h1>
     </ion-col>
 </ion-row>
 <ion-row>
+    <ion-col col-2 start>
+        <img class="mauf-icon" src="assets/icon/people.png" alt="">
+    </ion-col>
+    <ion-col col-4>
+        <ion-item>
+            <ion-label stacked>כמות רשומים</ion-label>
+            <ion-label>15</ion-label>
+        </ion-item>
+    </ion-col>
+    <ion-col col-2>
+        <img class="mauf-icon" src="assets/icon/chair.png" alt="">
+    </ion-col>
+    <ion-col col-4>
+        <ion-item>
+            <ion-label stacked>מושבים שהוזנו</ion-label>
+            <ion-label>10</ion-label>
+        </ion-item>
+    </ion-col>
+</ion-row>
+
+
+<ion-row *ngFor="let feedback of lecture.feedbacks; let i = index;" (click)="toggleAccordion(i)" tappable>
     <ion-col>
-        <p>{{lecture.details}}</p>
-    </ion-col>
-</ion-row>
-<ion-row>
-    <ion-col col-2>
-        <img class="icon-sm" src="assets/icon/2.png" />
-    </ion-col>
-    <ion-col col-5>
-        <p>תאריך התחלה</p>
-        <p>{{lecture.startDate | date: 'dd.MM.yy'}}</p>
-    </ion-col>
-    <ion-col col-5>
-        <p>תאריך סיום</p>
-        <p>{{lecture.endDate | date: 'dd.MM.yy'}}</p>
-    </ion-col>
-</ion-row>
-<ion-row>
-    <ion-col col-2>
-        <img class="icon-sm" src="assets/icon/3.png" />
-    </ion-col>
-    <ion-col col-10>
-        <p>מיקום</p>
-        <p>{{lecture.location}}</p>
+        <ion-row>
+            <ion-col col-3 start>
+                <ion-item tappable>
+                    <ion-label>10</ion-label>
+                    <ion-label stacked>ממוצע</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col col-7 start>
+                <h2>{{feedback.question}}</h2>
+            </ion-col>
+            <ion-col col-2 end>
+                <ion-icon *ngIf="!accordionIndexes[i]" name="ios-arrow-down"></ion-icon>
+                <ion-icon *ngIf="!!accordionIndexes[i]" name="ios-arrow-up"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="!!accordionIndexes[i] && !!selectedFeedbackData">
+            <ion-col>
+                <ion-row *ngFor="let item of selectedFeedbackData | keys">
+                    <ion-col col-2>
+                        <span>{{item.key}}</span>
+                    </ion-col>
+                    <ion-col col-10>
+                        <span>{{item.value}} מתוך {{sumFeedbacks()}} נתנו ציון {{item.key}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
     </ion-col>
 </ion-row>

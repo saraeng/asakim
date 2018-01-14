@@ -1,3 +1,4 @@
+import { FundingPage } from './../funding/funding';
 import { ContactUsPage } from './../contact-us/contact-us';
 import { PopoverOptions } from './../@shared/directives/popover-menu/models/popover-options';
 import { TasksPage } from './../tasks/tasks';
@@ -36,7 +37,7 @@ export class HomePage {
       { title: 'הדרכות', page: LecturesPage, icon: 'icon-13.png', size: 'half' }
     ],
     [
-      { title: 'מימון', page: ListPage, icon: 'icon-19.png', size: 'half' },
+      { title: 'מימון', page: FundingPage, icon: 'icon-19.png', size: 'half' },
       { title: 'מענקים', page: ListPage, icon: 'icon-7.png', size: 'half' }
     ],
   ];
@@ -76,7 +77,7 @@ export class HomePage {
   }
 
   public openPage(p: any) {
-    this.navCtrl.push(p, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
+    this.navCtrl.push(p, { }, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
 
   public showSettings() {

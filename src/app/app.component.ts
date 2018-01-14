@@ -11,7 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class AsakimApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
-
+  // rootPage: any = HomePage;
+  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fcm: FCM) {
     this.initializeApp();
   }

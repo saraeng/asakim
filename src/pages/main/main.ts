@@ -2,6 +2,7 @@ import { HomePage } from './../home/home';
 import { ListPage } from './../list/list';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-main',
@@ -11,6 +12,7 @@ import { NavController, Nav } from 'ionic-angular';
 export class MainPage {
   @ViewChild(Nav) nav: Nav;
 
+  // rootPage: any = LoginPage;
   rootPage: any = HomePage;
   public pages: Array<{ title: string, component: any }>;
 

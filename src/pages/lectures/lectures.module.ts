@@ -1,3 +1,4 @@
+import { AsakimCoreModule } from './../../@core/core.module';
 import { LectureFeedbacks } from './pages/lecture-details/feedbacks/feedbacks';
 import { LectureDetails } from './pages/lecture-details/details/details';
 import { LectureDetailsPage } from './pages/lecture-details/lecture-details';
@@ -16,6 +17,7 @@ import { LectureEvents } from './pages/lecture-details/events/events';
     LectureFeedbacks
   ],
   imports: [
+    AsakimCoreModule,
     PagesSharedModule,
     IonicPageModule.forChild(LecturesPage),
   ],

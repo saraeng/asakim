@@ -50,32 +50,42 @@ export class Lecture implements ITaber {
         this.feedbacks = [
             {
                 question: 'נושאים נוספים שהיית מעוניין/נת להרחיב את ידיעותיך',
-                answer: '',
-                type: FeedbackType.Text
+                answer: 5,
+                type: FeedbackType.Int,
+                answers: [3, 3, 5, 4, 8, 5]
             }, {
                 question: 'המלצות נוספות לשיפור',
-                answer: '',
-                type: FeedbackType.Text
+                answer: 4,
+                type: FeedbackType.Int,
+                answers: [3, 3, 5, 4, 8, 5]
+
             }, {
                 question: 'מהי ההערכה הכללית שלך לפעילות ההדרכה?',
-                answer: '',
-                type: FeedbackType.Text
+                answer: 3,
+                type: FeedbackType.Int,
+                answers: [3, 3, 5, 4, 8, 5]
+
             }, {
                 question: 'האם תהיה מעוניין לקבל שירותים נוספים מהמעוף?',
-                answer: '',
-                type: FeedbackType.Boolean
+                answer: true,
+                type: FeedbackType.Boolean,
+                answers: [true, true, false, true]
             }, {
                 question: 'פירוט שירותים נוספים',
-                answer: '',
-                type: FeedbackType.Text
+                answer: 8,
+                type: FeedbackType.Int,
+                answers: [3, 3, 5, 4, 8, 5]
             }, {
                 question: 'האם תרצה לקבל עדכונים שוטפים על פעילויות ושירותים של המעוף?',
-                answer: '',
-                type: FeedbackType.Boolean
+                answer: false,
+                type: FeedbackType.Boolean,
+                answers: [true, true, false, true]
             }, {
                 question: 'הערות',
-                answer: '',
-                type: FeedbackType.Text
+                answer: 'יש למקד את החומר לפני השיעור',
+                type: FeedbackType.Text,
+                answers: ['true', 'true', 'false', 'true']
+
             },
         ];
     }
@@ -96,6 +106,8 @@ export class LectureFeedback<T>{
     question: string;
     answer: T;
     type: FeedbackType = FeedbackType.Text;
+    answers: T[] = [];
+
 }
 
 export enum FeedbackType {
