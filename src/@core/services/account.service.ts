@@ -24,6 +24,7 @@ export class AccountService {
                 this._user = x;
                 obs.next(this._user);
             });
+            
         });
     }
 
