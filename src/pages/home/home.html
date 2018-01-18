@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-buttons>
       <button ion-button icon-only (click)="showSettings()">
-        <ion-icon  name="person" ></ion-icon>
+        <ion-icon name="person"></ion-icon>
       </button>
     </ion-buttons>
 
@@ -35,6 +35,14 @@
           <p>{{page.title}}</p>
         </div>
 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button class="btn-shadow" tappable (click)="openPage(page.page)" color="lightPurple" ion-col>בקרו באתר</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button class="btn-shadow" tappable (click)="openPage(page.page)" color="greener" ion-col>צור קשר</button>
       </ion-col>
     </ion-row>
   </ion-grid>

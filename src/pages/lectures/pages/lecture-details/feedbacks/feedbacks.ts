@@ -4,12 +4,28 @@ import { Questionaire } from './questionaire';
 @Component({
     selector: 'lecture-feedbacks',
     templateUrl: 'feedbacks.html',
+    styles: ['./feedbacks.scss']
 })
 export class LectureFeedbacks implements OnInit {
 
     @Input() lecture: Lecture;
     public accordionIndexes: { [id: number]: boolean } = {};
     public selectedFeedbackData: { [id: number]: number } = null;
+
+    public slides = [
+        {
+          description: "גכיעגכ עיכעי כעיכעי כעיכעי כעיעכ כעיע",
+          date: new Date().toISOString()
+        },
+        {
+            description: "גכיעגכ עיכעי כעיכעי כעיכעי כעיעכ כעיע",
+            date: new Date().toISOString()
+        },
+        {
+            description: "גכיעגכ עיכעי כעיכעי כעיכעי כעיעכ כעיע",
+            date: new Date().toISOString()
+        }
+      ];
 
     
 
@@ -50,6 +66,16 @@ export class LectureFeedbacks implements OnInit {
         }
 
         return sum;
+    }
+
+    public getAng(feedback: LectureFeedback<any>): number{
+        let avg: number = 0;
+        feedback.answers.forEach(answer => {
+            avg += answer;
+        });
+        avg += feedback.answer;
+        avg/=(feedback.answers.length+1)
+        return Math.round(avg);
     }
 
 }

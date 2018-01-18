@@ -1,28 +1,18 @@
-.task-status{
-    width: 33px;
-    margin: auto;
-    margin-left: 15px;
-
-    .status-active{
-        width: 15px;
-        height: 15px;
-        background-color: red;
-        border: 1px solid #000;
-        border-radius: 50%;
-        margin: auto;
+@import "../../../../theme/variables.scss";
+page-create-task{
+    ion-card {
         display: block;
-        text-align: center;
+        overflow: hidden;
+        margin-top: 25px !important;
     }
-    p{
-        text-align: center;
-        display: block;
-        margin: auto;
-        margin-top: 10px !important;
-    }   
+    ion-card-header{
+    background: color($colors, greener);
 
+    ion-title{
+        float: right;
+    }
     ion-icon{
-        margin: auto;
-        display: block;
-        text-align: center;
+        float: left;
     }
+   }
 }

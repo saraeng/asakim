@@ -30,7 +30,7 @@
         <ion-row>
             <ion-col col-3 start>
                 <ion-item tappable>
-                    <ion-label>10</ion-label>
+                    <ion-label>{{getAng(feedback)}}</ion-label>
                     <ion-label stacked>ממוצע</ion-label>
                 </ion-item>
             </ion-col>
@@ -54,5 +54,27 @@
                 </ion-row>
             </ion-col>
         </ion-row>
+    </ion-col>
+</ion-row>
+
+<ion-row>
+    <ion-col>
+        <ion-slides pager loop dir="rtl">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <ion-slide *ngFor="let slide of slides">
+                <ion-card>
+
+                    <ion-card-content>
+                        <p class="slide-desc" style="line-height:1.5">
+                            {{slide.description}}
+                        </p>
+                        <p class="slide-date">{{slide.date | date:'dd.MM.yy'}}</p>
+                    </ion-card-content>
+
+                </ion-card>
+
+            </ion-slide>
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+        </ion-slides>
     </ion-col>
 </ion-row>

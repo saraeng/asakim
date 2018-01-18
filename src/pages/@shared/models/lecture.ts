@@ -58,7 +58,6 @@ export class Lecture implements ITaber {
                 answer: 4,
                 type: FeedbackType.Int,
                 answers: [3, 3, 5, 4, 8, 5]
-
             }, {
                 question: 'מהי ההערכה הכללית שלך לפעילות ההדרכה?',
                 answer: 3,

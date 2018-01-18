@@ -1,1 +1,36 @@
-<p>Hello World</p>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>משימה חדשה</ion-title>
+      <ion-icon name="md-close" (click)="dismiss()"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="taskForm" (ngSubmit)="addTask(task)" novalidate>
+        <ion-item>
+          <ion-label stacked>תוכן</ion-label>
+          <ion-textarea placeholder="תוכן המשימה" formControlName="details" name="details"></ion-textarea>
+        </ion-item>
+        <ion-card class="errors" *ngIf="!taskForm.controls['details'].valid && taskForm.controls['details'].touched">
+          <ion-card-content>
+            <ion-list no-lines>
+              <span *ngIf="taskForm.controls['details'].hasError('required')">שדה חובה</span>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-item>
+          <ion-label>תאריך יעד</ion-label>
+          <ion-datetime displayFormat="DD.MM.YY" pickerFormat="DD MMMM YYYY" formControlName="dueDate" name="dueDate"></ion-datetime>
+ <img class="icon-sm" src="assets/icon/calendar2.png" item-end/>
+        </ion-item>
+        <ion-card class="errors" *ngIf="!taskForm.controls['dueDate'].valid && taskForm.controls['dueDate'].touched">
+          <ion-card-content>
+            <ion-list no-lines>
+              <span *ngIf="taskForm.controls['dueDate'].hasError('required')">שדה חובה</span>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <button [disabled]="!taskForm.valid" type="submit" ion-button>הוסף</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

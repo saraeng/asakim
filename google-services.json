@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "709110694570",
-    "firebase_url": "https://asakim-87d98.firebaseio.com",
-    "project_id": "asakim-87d98",
-    "storage_bucket": "asakim-87d98.appspot.com"
+    "project_number": "96106356323",
+    "firebase_url": "https://asakim-192511.firebaseio.com",
+    "project_id": "asakim-192511",
+    "storage_bucket": "asakim-192511.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:709110694570:android:e0c47fe9ad74b239",
+        "mobilesdk_app_id": "1:96106356323:android:e0c47fe9ad74b239",
         "android_client_info": {
           "package_name": "il.co.maof.asakim"
         }
       },
       "oauth_client": [
         {
-          "client_id": "709110694570-jhdch2p1k5oqqr70is6a2ig554b68d6p.apps.googleusercontent.com",
+          "client_id": "96106356323-ai9bh9d6cqltotrsnjgejdhqtaa2jerl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAh3-9fTM3MyexM23ou4ytMe6BH4ZAAGbI"
+          "current_key": "AIzaSyBynncrOAqUnRvBOIVyLiiaCmb0B7-9w4M"
         }
       ],
       "services": {
