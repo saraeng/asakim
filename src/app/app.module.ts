@@ -22,12 +22,14 @@ import { FCM } from '@ionic-native/fcm';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PendingConsultantsPageModule } from '../pages/pending-consultants/pending-consultants.module';
 
 const ASAKIM_PAGES = [
   MainPageModule,
   HomePageModule,
   ListPageModule,
   TasksPageModule,
+  PendingConsultantsPageModule,
   LoginPageModule,
   ContactUsPageModule,
   UserSettingsPageModule,

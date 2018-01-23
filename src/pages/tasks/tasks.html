@@ -4,13 +4,26 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>משימות שלי</ion-title>
   </ion-navbar>
 
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar>
+    <main-header title="משימות שלי"></main-header>
+      
+    <ion-buttons end>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
 </ion-header>
+
 
 
 <ion-content>
@@ -63,14 +76,23 @@
             </div>
             <!-- <p class="normal" *ngIf="!!task.open">{{task.details}}</p> -->
             <div *ngIf="!task.open" class="key-value">
-              <span><small>לביצוע עד</small></span>
-              <span class="bold"><small>{{task.dueDate | date:'dd.MM.yy'}}</small></span>
+              <span>
+                <small>לביצוע עד</small>
+              </span>
+              <span class="bold">
+                <small>{{task.dueDate | date:'dd.MM.yy'}}</small>
+              </span>
             </div>
             <div class="key-value">
-              <span><small>תאריך יצירה</small></span>
-              <span><small>{{task.created | date:'dd.MM.yy'}}</small></span>
+              <span>
+                <small>תאריך יצירה</small>
+              </span>
+              <span>
+                <small>{{task.created | date:'dd.MM.yy'}}</small>
+              </span>
             </div>
-            <button ion-button clear item-end (click)="editTask(task)"><ion-icon name="{{task.open ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
+            <button ion-button clear item-end (click)="editTask(task)">
+              <ion-icon name="{{task.open ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
             </button>
           </ion-item>
         </ion-item>
@@ -80,6 +102,8 @@
   </ion-card>
 
   <ion-fab left bottom>
-    <button ion-fab color="light" (click)="addTask()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="light" (click)="addTask()">
+      <ion-icon name="add"></ion-icon>
+    </button>
   </ion-fab>
 </ion-content>

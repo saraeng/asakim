@@ -14,12 +14,14 @@ import { PopoverMenuPage } from './directives/popover-menu/popover-menu-page/pop
 import { ProgressBar } from './components/progress-bar/progress-bar.component';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { TabFilter } from './pipes/tab.pipe';
-import { ActiveCounter } from './components/active-counter/active-counter..components';
+import { ActiveCounter } from './components/active-counter/active-counter.components';
+import { MainHeader } from './components/main-header/main-header.components';
+import { BackBtn } from './components/back-btn/back-btn.components';
 
 
 const COMMON_COMPONENTS = [BaseTabPage];
 const PIPES = [TabFilter, PeriodFilter, HebrewBooleanFilter];
-const COMPONENTS = [TabStatusIndicator, SmallTabs, PopoverMenuDirective, ProgressBar, ActiveCounter];
+const COMPONENTS = [TabStatusIndicator, SmallTabs, PopoverMenuDirective, ProgressBar, ActiveCounter, MainHeader, BackBtn];
 const ENTRY_COMPONENTS = [PopoverMenuPage];
 
 @NgModule({

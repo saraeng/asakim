@@ -5,6 +5,7 @@ export class Fund {
     public created: Date | string;
     public fundType: string;
     public miktze: string;
-    public dischargeTable: string;
-    public loanRepayment: string;
+    public dischargeTable: { path:string, name:string};
+    public loanRepaymentReason: string;
+    public loanRepaymentEnabled: boolean;
 }

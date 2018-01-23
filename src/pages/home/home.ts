@@ -7,6 +7,7 @@ import { IonicPage, NavController, NavParams, ViewController, Platform } from 'i
 import { ListPage } from '../list/list';
 import { UserSettingsPage } from '../user-settings/user-settings';
 import { LecturesPage } from '../lectures/lectures';
+import { PendingConsultantsPage } from '../pending-consultants/pending-consultants';
 
 /**
  * Generated class for the HomePage page.
@@ -29,7 +30,7 @@ export class HomePage {
       { title: 'המשימות שלי', page: TasksPage, icon: 'icon-14.png', size: 'full', css: 'big' }
     ],
     [
-      { title: 'יועצים הממתינים לבחירה', page: ListPage, icon: 'icon-15.png', size: 'half' },
+      { title: 'יועצים הממתינים לבחירה', page: PendingConsultantsPage, icon: 'icon-15.png', size: 'half' },
       { title: 'שירותי יעוץ', page: ListPage, icon: 'icon-16.png', size: 'half' }
     ],
     [
@@ -79,6 +80,12 @@ export class HomePage {
   public openPage(p: any) {
     this.navCtrl.push(p, { }, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
   }
+
+  public goToContactUsPage(p: any) {
+    this.navCtrl.push(ContactUsPage, { }, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });
+  }
+
+  
 
   public showSettings() {
     this.navCtrl.push(UserSettingsPage, {}, { animate: true, animation: 'ios-transition', duration: 400, easing: 'ease-in-bounce', direction: 'forward' });

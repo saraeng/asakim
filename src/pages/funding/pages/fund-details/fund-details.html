@@ -1,0 +1,93 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>מימון</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-content class="no-pad-sides">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <tab-status [status]="fund.status" item-start></tab-status>
+                            <!-- <p class="underline">{{fund.status}}</p> -->
+                            <h2 class="fund-title bold">{{fund.title}}</h2>
+                            <h1 class="">כלי סיוע</h1>
+                            <div class="key-value">
+                                <p class="key">
+                                    <small>תאריך הגשה</small>
+                                </p>
+                                <span>
+                                    <small>{{fund.created | date:'dd.MM.yy'}}</small>
+                                </span>
+                            </div>
+                            <div class="line-decorator" color="greener"></div>
+                            <button ion-button small class="btn-black" color="lightPurple" (click)="cancelFund(fund)">בטל בקשה
+                            </button>
+                            <back-btn></back-btn>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <p class="key">
+                            <small>סוג מענק</small>
+                        </p>
+                        <p>{{fund.fundType}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                        <ion-col>
+                            <p class="key">
+                                <small>מקצה</small>
+                            </p>
+                            <p>{{fund.miktze}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                            <ion-col>
+                                <p class="key">
+                                    <small>לוח סילוקין</small>
+                                </p>
+                                <p>{{fund.dischargeTable.name}}</p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                                <ion-col>
+                                    <ion-icon (click)="loanRepaymentSegmentToggle()" *ngIf="fund.loanRepaymentEnabled && !!loanRepaymentSegmentOpen" name="md-close" class="pull-left close-icon"></ion-icon>
+                                    <p class="key">
+                                        <small>החזר הלוואה חלקי/מלא</small>
+                                    </p>
+                                    <p>{{fund.loanRepaymentReason}}</p>
+                                    <button *ngIf="fund.loanRepaymentEnabled && !loanRepaymentSegmentOpen" ion-button small class="btn-black" color="lightPurple" (click)="loanRepaymentSegmentToggle()">החזר הלוואה</button>
+                                    <form *ngIf="fund.loanRepaymentEnabled && !!loanRepaymentSegmentOpen" [formGroup]="loanRepaymentForm" (ngSubmit)="sendLoanRepayment()" novalidate>
+                                            <ion-item>
+                                              <ion-label stacked>סיבה להחזר ההלוואה</ion-label>
+                                              <ion-textarea placeholder="" formControlName="reason" name="reason"></ion-textarea>
+                                            </ion-item>
+                                            <ion-card class="errors" *ngIf="!loanRepaymentForm.controls['reason'].valid && loanRepaymentForm.controls['reason'].touched">
+                                              <ion-card-content>
+                                                <ion-list no-lines>
+                                                  <span *ngIf="loanRepaymentForm.controls['reason'].hasError('required')">שדה חובה</span>
+                                                </ion-list>
+                                              </ion-card-content>
+                                            </ion-card>
+                                            
+                                            <button [disabled]="!loanRepaymentForm.valid" type="submit" ion-button>שלח</button>
+                                          </form>
+                                </ion-col>
+                            </ion-row>
+                    
+
+
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

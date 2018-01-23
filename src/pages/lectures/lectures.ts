@@ -99,6 +99,6 @@ export class LecturesPage extends BaseTabPage<Lecture> implements OnInit {
   // }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TasksPage');
+    console.log('ionViewDidLoad Lectures');
   }
 }

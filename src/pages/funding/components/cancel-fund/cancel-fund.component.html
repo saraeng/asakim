@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>מימון</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>ביטול בקשת מימון</ion-title>
+      <ion-icon name="md-close" (click)="dismiss()"></ion-icon>
+    </ion-card-header>
+    <ion-card-content class="cancel-fund-card-content">
+
+      <p>הינך מעביר הוראה לביטול בקשה למענק.</p>
+      <p>אנא אשר ביצוע</p>
+      <button class="btn-black btn-shadow" ion-button (click)="approve()" color="lightPurple" block>לאשר</button>
+      <button ion-button (click)="dismiss()" color="app" outline block>חזור</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

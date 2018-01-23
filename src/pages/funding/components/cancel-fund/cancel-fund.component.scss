@@ -1,0 +1,28 @@
+@import "../../../../theme/variables.scss";
+page-cancel-fund{
+    ion-card {
+        display: block;
+        overflow: hidden;
+        margin-top: 25px !important;
+    }
+    ion-card-header{
+    background: color($colors, greener);
+    }
+
+    ion-title{
+        float: right;
+    }
+    ion-icon{
+        float: left;
+    }
+    ion-card-content {
+        padding: 50px !important;
+        p{
+            margin: 30px 0 !important;
+        }
+    }
+    button[ion-button]{
+        margin: 30px auto !important;
+        width: 70%;
+    }
+}

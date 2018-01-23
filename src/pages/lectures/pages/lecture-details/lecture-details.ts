@@ -38,8 +38,4 @@ export class LectureDetailsPage implements OnInit {
         }
     }
 
-    public back() {
-        this.navCtrl.canGoBack() ? this.navCtrl.pop() : null;
-    }
-
 }

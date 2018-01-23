@@ -1,5 +1,4 @@
 <!--
-  Generated template for the TasksPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -23,7 +22,26 @@
         </ion-card-header>
         <ion-card-content>
             <ion-list>
-                
+                <ion-item *ngFor="let fund of funds" class="regular">
+                    <ion-item>
+                        <tab-status [status]="fund.status" item-start></tab-status>
+                        <!-- <p class="underline">{{fund.status}}</p> -->
+                        <h2 class="fund-title bold">{{fund.title}}</h2>
+                        <h1 class="">כלי סיוע</h1>
+                        <div class="key-value">
+                            <p class="key">
+                                <small>תאריך הגשה</small>
+                            </p>
+                            <span>
+                                <small>{{fund.created | date:'dd.MM.yy'}}</small>
+                            </span>
+                        </div>
+                        <div class="line-decorator" color="greener"></div>
+                        <button ion-button small class="btn-black" color="lightPurple" (click)="cancelFund(fund)">בטל בקשה
+                        </button>
+                        <ion-icon name="ios-arrow-forward" class="black" item-end (click)="selectFund(fund)"></ion-icon>
+                    </ion-item>
+                </ion-item>
             </ion-list>
         </ion-card-content>
     </ion-card>
