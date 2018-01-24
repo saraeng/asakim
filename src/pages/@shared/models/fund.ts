@@ -1,4 +1,6 @@
-import { TabStatus } from './../@shared/models/tabs/tab-status';
+import { TabStatus } from "./tabs/tab-status";
+
+
 export class Fund {
     public status: TabStatus;
     public title: string;

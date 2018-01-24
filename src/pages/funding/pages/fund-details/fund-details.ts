@@ -1,8 +1,8 @@
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Component, OnInit } from '@angular/core';
-import { Fund } from '../../fund';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CancelFundPage } from '../../components/cancel-fund/cancel-fund.component';
+import { Fund } from '../../../@shared/models/fund';
 @Component({
     selector: 'page-fund-details',
     templateUrl: 'fund-details.html',

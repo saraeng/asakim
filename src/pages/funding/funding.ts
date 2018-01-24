@@ -1,9 +1,10 @@
 import { TabStatus } from './../@shared/models/tabs/tab-status';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { Fund } from './fund';
+
 import { FundDetailsPage } from './pages/fund-details/fund-details';
 import { CancelFundPage } from './components/cancel-fund/cancel-fund.component';
+import { Fund } from '../@shared/models/fund';
 @IonicPage()
 @Component({
     selector: 'page-funding',
