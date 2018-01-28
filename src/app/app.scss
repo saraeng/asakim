@@ -20,8 +20,8 @@
 @import "../theme/variables.scss";
 
 @font-face {
-font-family: 'Rubik';
-src: url(/assets/fonts/Rubik-Regular.ttf) format("truetype");
+font-family: 'open-sans';
+src: url(/assets/fonts/OpenSansHebrew-Regular.ttf) format("truetype");
 }
 
 $SIDEMENU_TOP:  #4d2a88;
@@ -31,7 +31,7 @@ $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
 
 body{
-    font-family: 'Rubik' !important;
+    font-family: 'open-sans' !important;
     .scroll-content{
         background: #dee5f0 !important;
     }

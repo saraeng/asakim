@@ -1,0 +1,60 @@
+pending-consultant-list-item {
+
+    .center-box{
+        height: 50%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .border-left{
+        border-left: 0.55px solid #c8c7cc;
+    }
+    .border-top{
+        border-top: 0.55px solid #c8c7cc;
+    }
+
+    .box-btn {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        border: 2px solid color($colors, greener);
+        border-radius: 4px;
+        box-shadow: 
+        0 0 0 2px white,
+        0 0 0 3px color($colors, greener),
+    }
+    
+
+    .box-btn-container{
+        display:flex;
+    }
+    .box-btn-icon{
+        font-size: 70px;
+        line-height: 30px;
+    }
+
+    
+
+
+    //rating
+    ul {
+        padding: 0px;
+        margin: 2px;
+
+        &.rating li {
+          padding: 0 !important;
+          background: none;
+          color: purple;
+      
+          ion-icon {
+            font-size: 10px;
+          }
+        }
+      }
+
+}

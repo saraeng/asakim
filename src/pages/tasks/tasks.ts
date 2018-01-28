@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { SelectItem } from '../../@core/models/general/select-item';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TabStatus } from '../@shared/models/tabs/tab-status';
+import { listDictionary } from '../@shared/common/listDictionary';
 
 /**
  * Generated class for the TasksPage page.
@@ -29,6 +30,7 @@ export class TasksPage extends BaseTabPage<Task> implements OnInit {
   // public selectedTabMode: string = 'all';
   public taskForm: FormGroup;
   public moreOptions: PopoverOptions;
+  public tasksDic: listDictionary =new listDictionary();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private fb: FormBuilder) {
     super([
@@ -36,18 +38,18 @@ export class TasksPage extends BaseTabPage<Task> implements OnInit {
       { label: 'פעיל', value: 'active' },
       { label: 'היסטוריה', value: 'history' },
     ], [
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'משתמש', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
-        { type: 'מערכת', open: false, details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '1', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', id: '2', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '3', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', id: '4', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '5', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', id: '6', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '7', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', id: '8', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '9', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'משתמש', id: '10', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
+        { type: 'מערכת', id: '11', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Completed },
+        { type: 'מערכת', id: '12', details: 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', dueDate: new Date().toISOString(), created: new Date().toISOString(), status: TabStatus.Active },
       ]);
     // this.tabs = [
     //   { label: 'הכל', value: 'all' },
@@ -93,8 +95,10 @@ export class TasksPage extends BaseTabPage<Task> implements OnInit {
   }
 
   public editTask(t: Task) {
-    t.open = !t.open;
-    if (t.open) {
+    this.tasksDic.toggle(t.id);
+    // t.open = !t.open;
+    // if (t.open) {
+    if (this.tasksDic.getValue(t.id)) {
       this.taskForm.controls['details'].setValue(t.details);
       this.taskForm.controls['dueDate'].setValue(t.dueDate);
     } else {

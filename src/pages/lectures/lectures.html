@@ -38,7 +38,7 @@
             <h2 class="task-type bold">{{lecture.type}}</h2>
             <h2 class="task-type">{{lecture.title}}</h2>
             <!-- <p *ngIf="!lecture.open" class="bold">{{lecture.details}}</p> -->
-            <div *ngIf="!!lecture.open">
+            <!-- <div *ngIf="!!lecturesDic.getValue(lecture.id)">
               <form [formGroup]="lectureForm" (ngSubmit)="updateLecture(lecture)" novalidate>
                 <ion-item>
                   <ion-textarea formControlName="details" name="details"></ion-textarea>
@@ -63,8 +63,8 @@
                 </ion-card>
                 <button [disabled]="!lectureForm.valid" type="submit" ion-button>שמור</button>
               </form>
-            </div>
-            <div *ngIf="!lecture.open" class="key-value">
+            </div> -->
+            <div *ngIf="!lecturesDic.getValue(lecture.id)" class="key-value">
               <span><small>החל מ:</small></span>
               <span class="bold"><small>{{lecture.startDate | date:'dd.MM.yy'}}</small></span>
             </div>

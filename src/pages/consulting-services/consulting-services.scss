@@ -1,5 +1,9 @@
 @import "../../theme/variables.scss";
-page-pending-consultants {
+
+page-consulting-services {
+    .title{
+        color: color($colors, app) !important;
+    }
     .item-inner{
         padding:0 !important;
     }
@@ -17,5 +21,6 @@ page-pending-consultants {
     ion-label{
         margin: 0 !important
     }
-    
 }
+
+

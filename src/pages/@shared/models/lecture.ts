@@ -5,6 +5,7 @@ import { TabStatus } from './tabs/tab-status';
 export class Lecture implements ITaber {
 
     constructor(
+        public id: string,
         public type: string,
         public title: string,
         public status: TabStatus,
@@ -12,7 +13,7 @@ export class Lecture implements ITaber {
         public location: string,
         public startDate: string | Date,
         public endDate: string | Date,
-        public open: boolean = false,
+        // public open: boolean = false,
         public events: LectureEvent[] = [],
         public feedbacks: LectureFeedback<any>[] = [],
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Consultant } from '../@shared/models/consultant';
+import { Alert } from 'ionic-angular/components/alert/alert';
+// import { listDictionary } from '../@shared/common/listDictionary';
 
 /**
  * Generated class for the PendingConsultantsPage page.
@@ -16,28 +18,32 @@ import { Consultant } from '../@shared/models/consultant';
 })
 export class PendingConsultantsPage {
   public consultants: Consultant[] = [];
-  public consultantChosen = false;
+  public isConsultantChosen = false;
+  // public consultantsDic: listDictionary =new listDictionary();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.consultants = [{
-      rate: 10, open: false, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
+      id:'1', rate: 10, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
         phone: "0548498850",
         email: "213shr@gmil.com",
-        website: "www.abc.com"
+        website: "www.abc.com",
+        name: 'משה פנדלוביץ יועץ וניהול בע"מ'
       }
     },
     {
-      rate: 5, open: false, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
+      id:'2', rate: 5, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
         phone: "0548498850",
         email: "213shr@gmil.com",
-        website: "www.abc.com"
+        website: "www.abc.com",
+        name: 'משה פנדלוביץ יועץ וניהול בע"מ'
       }
     },
     {
-      rate: 7, open: false, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
+      id:'3', rate: 7, chosen: false, packNum: 35, hoursPerPack: 8, name: "משה פנדלוביץ", dueDate: new Date().toISOString(), specialization: "יועץ לניהול העסק", subSpecialization: "ניהול עסקים קטנים", contactDetails: {
         phone: "0548498850",
         email: "213shr@gmil.com",
-        website: "www.abc.com"
+        website: "www.abc.com",
+        name: 'משה פנדלוביץ יועץ וניהול בע"מ'
       }
     }
     ]
@@ -47,12 +53,12 @@ export class PendingConsultantsPage {
     console.log('ionViewDidLoad PendingConsultantsPage');
   }
 
-  public toggleContactDetails(c) {
-    c.open = !c.open
+  // public toggleContactDetails(c) {
+  //   this.consultantsDic.toggle(c.id);
+  // }
+
+  public consultantChosen(c) {
+    this.isConsultantChosen = true;
   }
 
-  public chooseConsultant(c) {
-    this.consultantChosen = true;
-    c.chosen = true;
-  }
 }

@@ -17,11 +17,13 @@ import { TabFilter } from './pipes/tab.pipe';
 import { ActiveCounter } from './components/active-counter/active-counter.components';
 import { MainHeader } from './components/main-header/main-header.components';
 import { BackBtn } from './components/back-btn/back-btn.components';
+import { ContactDetailsBtn } from './components/contact-details/contact-details-btn/contact-details-btn.components';
+import { ContactDetailsBox } from './components/contact-details/contact-details-box/contact-details-box.components';
 
 
 const COMMON_COMPONENTS = [BaseTabPage];
 const PIPES = [TabFilter, PeriodFilter, HebrewBooleanFilter];
-const COMPONENTS = [TabStatusIndicator, SmallTabs, PopoverMenuDirective, ProgressBar, ActiveCounter, MainHeader, BackBtn];
+const COMPONENTS = [TabStatusIndicator, SmallTabs, PopoverMenuDirective, ProgressBar, ActiveCounter, MainHeader, BackBtn, ContactDetailsBtn, ContactDetailsBox];
 const ENTRY_COMPONENTS = [PopoverMenuPage];
 
 @NgModule({

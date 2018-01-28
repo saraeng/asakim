@@ -22,7 +22,7 @@ export class CreateTaskPage {
 
     addTask() { 
         const formVal = this.taskForm.value;
-        let t:Task = {type: 'משתמש', open: false, details: formVal.details, dueDate: formVal.dueDate, created: new Date().toISOString(), status: TabStatus.Active};
+        let t:Task = {type: 'משתמש', id: '', details: formVal.details, dueDate: formVal.dueDate, created: new Date().toISOString(), status: TabStatus.Active};
         this.dismiss();
     }
 

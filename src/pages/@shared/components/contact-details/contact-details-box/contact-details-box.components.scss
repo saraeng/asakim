@@ -1,0 +1,12 @@
+contact-details-box{
+    display:none !important;
+    &.is-open {
+        display: block !important;
+    }
+    .detailsBox{
+        background: rgba(141, 141, 141, 0.404);
+        width:100%;
+    }
+}
+
+

@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Lecture } from '../@shared/models/lecture';
+import { listDictionary } from '../@shared/common/listDictionary';
 
 /**
  * Generated class for the LecturesPage page.
@@ -26,6 +27,7 @@ export class LecturesPage extends BaseTabPage<Lecture> implements OnInit {
 
   public lectureForm: FormGroup;
   public moreOptions: PopoverOptions;
+  public lecturesDic: listDictionary =new listDictionary();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private fb: FormBuilder) {
     super([
@@ -33,12 +35,12 @@ export class LecturesPage extends BaseTabPage<Lecture> implements OnInit {
       { label: 'פעיל', value: 'active' },
       { label: 'היסטוריה', value: 'history' },
     ], [
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
-        new Lecture('הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('1', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('2', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('3', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('4', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('5', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Active, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
+        new Lecture('6', 'הדרכה', 'נושא הדרכה ללוחם הצעיר', TabStatus.Completed, 'בדיקה בדיקה בדיקה בדיקה בדיקה בדיקה', 'בית ספר להדרכה, סניף מעוףת כתובת 24, א.ת. קרית מטלון, פתח-תקוה.', new Date().toISOString(), new Date().toISOString()),
       ]);
 
     this.initLectureForm();
@@ -65,8 +67,10 @@ export class LecturesPage extends BaseTabPage<Lecture> implements OnInit {
   }
 
   public editLecture(l: Lecture) {
-    l.open = !l.open;
-    if (l.open) {
+    this.lecturesDic.toggle(l.id);
+    // l.open = !l.open;
+    // if (l.open) {
+    if (this.lecturesDic.getValue(l.id)) {
       this.lectureForm.controls['details'].setValue(l.details);
       this.lectureForm.controls['dueDate'].setValue(l.startDate);
     } else {

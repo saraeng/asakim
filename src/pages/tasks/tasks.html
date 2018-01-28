@@ -47,8 +47,8 @@
           <ion-item>
             <tab-status [status]="task.status" item-start></tab-status>
             <h2 class="task-type bold">{{task.type}}</h2>
-            <p *ngIf="!task.open" class="bold">{{task.details}}</p>
-            <div *ngIf="!!task.open">
+            <p *ngIf="!tasksDic.getValue(task.id)" class="bold">{{task.details}}</p>
+            <div *ngIf="!!tasksDic.getValue(task.id)">
               <form [formGroup]="taskForm" (ngSubmit)="updateTask(task)" novalidate>
                 <ion-item>
                   <ion-textarea formControlName="details" name="details"></ion-textarea>
@@ -74,8 +74,8 @@
                 <button [disabled]="!taskForm.valid" type="submit" ion-button>שמור</button>
               </form>
             </div>
-            <!-- <p class="normal" *ngIf="!!task.open">{{task.details}}</p> -->
-            <div *ngIf="!task.open" class="key-value">
+            <!-- <p class="normal" *ngIf="!!tasksDic.getValue(task.id)">{{task.details}}</p> -->
+            <div *ngIf="!tasksDic.getValue(task.id)" class="key-value">
               <span>
                 <small>לביצוע עד</small>
               </span>
@@ -92,7 +92,7 @@
               </span>
             </div>
             <button ion-button clear item-end (click)="editTask(task)">
-              <ion-icon name="{{task.open ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
+              <ion-icon name="{{tasksDic.getValue(task.id) ? 'ios-arrow-up' : 'ios-arrow-down'}}" class="black"></ion-icon>
             </button>
           </ion-item>
         </ion-item>

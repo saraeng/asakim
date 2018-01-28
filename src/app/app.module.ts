@@ -23,6 +23,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PendingConsultantsPageModule } from '../pages/pending-consultants/pending-consultants.module';
+import { ConsultingServicesPageModule } from '../pages/consulting-services/consulting-services.module';
 
 const ASAKIM_PAGES = [
   MainPageModule,
@@ -30,6 +31,7 @@ const ASAKIM_PAGES = [
   ListPageModule,
   TasksPageModule,
   PendingConsultantsPageModule,
+  ConsultingServicesPageModule,
   LoginPageModule,
   ContactUsPageModule,
   UserSettingsPageModule,

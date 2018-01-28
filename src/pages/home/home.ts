@@ -8,6 +8,7 @@ import { ListPage } from '../list/list';
 import { UserSettingsPage } from '../user-settings/user-settings';
 import { LecturesPage } from '../lectures/lectures';
 import { PendingConsultantsPage } from '../pending-consultants/pending-consultants';
+import { ConsultingServicesPage } from '../consulting-services/consulting-services';
 
 /**
  * Generated class for the HomePage page.
@@ -31,7 +32,7 @@ export class HomePage {
     ],
     [
       { title: 'יועצים הממתינים לבחירה', page: PendingConsultantsPage, icon: 'icon-15.png', size: 'half' },
-      { title: 'שירותי יעוץ', page: ListPage, icon: 'icon-16.png', size: 'half' }
+      { title: 'שירותי יעוץ', page: ConsultingServicesPage, icon: 'icon-16.png', size: 'half' }
     ],
     [
       { title: 'שעות יעוץ לאישור', page: ListPage, icon: 'icon-10.png', size: 'half' },

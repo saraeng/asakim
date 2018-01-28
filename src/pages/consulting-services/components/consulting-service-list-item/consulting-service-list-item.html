@@ -1,0 +1,22 @@
+<ion-grid no-padding>
+
+  <ion-row>
+    <ion-item>
+      <tab-status [status]="consultingService.status" item-start></tab-status>
+      <h2 class="title bold">{{consultingService.packName}}</h2>
+      <div class="" *ngIf="consultingService.status == '0'">
+        <p class="key">
+          <small>תאריך אחרון למימוש החבילה</small>
+        </p>
+        <span>
+          <small>{{consultingService.dueDate | date:'dd.MM.yy'}}</small>
+        </span>
+      </div>
+      <contact-details-btn [contactDetails]="contactDetails"></contact-details-btn>
+      <ion-icon name="ios-arrow-forward" class="black" item-end (click)="selectPack(consultingService)"></ion-icon>
+    </ion-item>
+  </ion-row>
+
+  <contact-details-box ion-row class="contact-details-box border-top" [contactDetails]="consultingService.contactDetails" #contactDetails>
+  </contact-details-box>
+</ion-grid>

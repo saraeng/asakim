@@ -3,8 +3,9 @@ import { ContactDetails } from "./contactDetails";
 
 
 export class Consultant {
+    id: string;
     rate: number = 0;
-    open: boolean = false;
+    // open: boolean = false;
     chosen: boolean = false;
     packNum: number;
     hoursPerPack: number;
